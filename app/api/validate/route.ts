@@ -12,8 +12,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const supabaseTestBase =
-            "https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task";
+        const supabaseTestBase = process.env.NEXT_PUBLIC_SUPABASE_TEST_BASE;
         const testUrl = `${supabaseTestBase}?url=${encodeURIComponent(url)}&email=${encodeURIComponent(email)}`;
 
         const response = await fetch(testUrl, { method: "GET" });
